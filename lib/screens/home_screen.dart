@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_design/screens/screens.dart';
+
+import '../widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -8,8 +9,26 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
+        children: const [
           Background(),
+          _HomeBody(),
+        ],
+      ),
+      bottomNavigationBar: const CustomBottomNavigation(),
+    );
+  }
+}
+
+class _HomeBody extends StatelessWidget {
+  const _HomeBody({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: const [
+          PageTitle(),
+          CardTable(),
         ],
       ),
     );
